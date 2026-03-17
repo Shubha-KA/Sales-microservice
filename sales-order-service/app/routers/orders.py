@@ -23,7 +23,7 @@ def health():
     return {"status": "ok"}
 
 
-@router.post("/", response_model=OrderResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=OrderResponse, status_code=status.HTTP_201_CREATED)
 def create_order_api(
     data: OrderCreate,
     request: Request,
@@ -57,7 +57,7 @@ def get_order_api(
     )
 
 
-@router.get("/", response_model=list[OrderResponse])
+@router.get("", response_model=list[OrderResponse])
 def list_orders_api(
     page: int = Query(1, ge=1),
     limit: int = Query(15, ge=1, le=100),
